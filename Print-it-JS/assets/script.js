@@ -29,3 +29,5 @@ arrowLeft.addEventListener('click', () => {
 arrowRight.addEventListener('click', () => {
     console.log('CLIC Flèche droite');
 });
+// Récupération du conteneur des points
+const conteneurBulletPoints = document.querySelector('.dots');
