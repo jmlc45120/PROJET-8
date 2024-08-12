@@ -29,5 +29,30 @@ arrowLeft.addEventListener('click', () => {
 arrowRight.addEventListener('click', () => {
     console.log('CLIC Flèche droite');
 });
+
 // Récupération du conteneur des points
 const conteneurBulletPoints = document.querySelector('.dots');
+
+
+function affichBulletPoints() {
+	let nombreSlides; // Variable globale stockage nb slides
+	function compterSlides() {
+		for (let i = 0; i <= slides.length; i++) {
+			nombreSlides = i;
+		}
+		console.log(nombreSlides)
+	}
+	function placerPoints() {
+		for (let i = 0; i < nombreSlides; i++) {
+			const dot = document.createElement('div');
+			dot.classList.add('dot');
+			if (i === 0) {
+				dot.classList.add('dot_selected');  // Sélectionne le premier point
+			}
+			conteneurBulletPoints.appendChild(dot);
+		}
+	}
+    compterSlides();
+    placerPoints();
+}
+affichBulletPoints();
