@@ -27,7 +27,7 @@ const bannerText = document.querySelector('#banner p');
 const conteneurBulletPoints = document.querySelector('.dots');
 
 // Initialisation de l'index du slide courant
-let index = 0;
+let indexSlideEnCours = 0;
 
 // Fonction pour affichage des bullet points
 function affichBulletPoints() {
@@ -44,24 +44,24 @@ affichBulletPoints();
 
 // Fonction pour rendre le slide dynamique:
 
-function màjSlide(index) {
-    bannerImg.src = `./assets/images/slideshow/${slides[index].image}`;
-    bannerText.innerHTML = slides[index].tagLine;
+function màjSlide(indexSlideEnCours) {
+    bannerImg.src = `./assets/images/slideshow/${slides[indexSlideEnCours].image}`;
+    bannerText.innerHTML = slides[indexSlideEnCours].tagLine;
     const dots = document.querySelectorAll('.dot');
     dots.forEach(dot => dot.classList.remove('dot_selected'));
-    dots[index].classList.add('dot_selected');
+    dots[indexSlideEnCours].classList.add('dot_selected');
 }
 // Gestion evenement : Clic flêche gauche :
 arrowLeft.addEventListener('click', () => {
-    index --;
-	if (index <0)
-		index =0;
-    màjSlide(index);
+    indexSlideEnCours --;
+	if (indexSlideEnCours <0)
+		indexSlideEnCours =0;
+    màjSlide(indexSlideEnCours);
 });
 // Gestion evenement : Clic flêche droite :
 arrowRight.addEventListener('click', () => {
-    index ++;
-	if (index >slides.length-1)
-		index =slides.length-1;
-	màjSlide(index);
+    indexSlideEnCours ++;
+	if (indexSlideEnCours >slides.length-1)
+		indexSlideEnCours =slides.length-1;
+	màjSlide(indexSlideEnCours);
 });
