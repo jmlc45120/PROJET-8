@@ -21,13 +21,10 @@ const slides = [
 const arrowLeft = document.querySelector('#banner .arrow_left');
 const arrowRight = document.querySelector('#banner .arrow_right');
 
-// Récupération des éléments HTML de la bannière
+// Pointage vers les éléments HTML de la bannière à mettre à jour :
 const bannerImg = document.querySelector('#banner .banner-img');
 const bannerText = document.querySelector('#banner p');
 const conteneurBulletPoints = document.querySelector('.dots');
-
-// Initialisation de l'index du slide courant
-let indexSlideEnCours = 0;
 
 // Fonction pour affichage des bullet points
 function affichBulletPoints() {
@@ -42,8 +39,9 @@ function affichBulletPoints() {
 }
 affichBulletPoints();
 
-// Fonction pour rendre le slide dynamique:
-
+// Initialisation de l'index du slide courant
+let indexSlideEnCours = 0;
+// Fonction pour gestion du slide dynamique:
 function màjSlide(indexSlideEnCours) {
     bannerImg.src = `./assets/images/slideshow/${slides[indexSlideEnCours].image}`;
     bannerText.innerHTML = slides[indexSlideEnCours].tagLine;
@@ -51,16 +49,20 @@ function màjSlide(indexSlideEnCours) {
     dots.forEach(dot => dot.classList.remove('dot_selected'));
     dots[indexSlideEnCours].classList.add('dot_selected');
 }
+
 // Gestion evenement : Clic flêche gauche :
 arrowLeft.addEventListener('click', () => {
     indexSlideEnCours --;
+    // Bouclage carrousel première vers dernière image :
 	if (indexSlideEnCours <0)
 		indexSlideEnCours =3;
     màjSlide(indexSlideEnCours);
 });
+
 // Gestion evenement : Clic flêche droite :
 arrowRight.addEventListener('click', () => {
     indexSlideEnCours ++;
+    // Bouclage carrousel dernière vers première image :
 	if (indexSlideEnCours >3)
 		indexSlideEnCours =0;
 	màjSlide(indexSlideEnCours);
