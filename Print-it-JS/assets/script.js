@@ -17,11 +17,11 @@ const slides = [
     }
 ];
 
-// Sélection des éléments flèche gauche et flèche droite :
+// Récupération des éléments HTML flèche gauche et flèche droite :
 const arrowLeft = document.querySelector('#banner .arrow_left');
 const arrowRight = document.querySelector('#banner .arrow_right');
 
-// Récupération des éléments de la bannière
+// Récupération des éléments HTML de la bannière
 const bannerImg = document.querySelector('#banner .banner-img');
 const bannerText = document.querySelector('#banner p');
 const conteneurBulletPoints = document.querySelector('.dots');
@@ -55,13 +55,13 @@ function màjSlide(indexSlideEnCours) {
 arrowLeft.addEventListener('click', () => {
     indexSlideEnCours --;
 	if (indexSlideEnCours <0)
-		indexSlideEnCours =0;
+		indexSlideEnCours =3;
     màjSlide(indexSlideEnCours);
 });
 // Gestion evenement : Clic flêche droite :
 arrowRight.addEventListener('click', () => {
     indexSlideEnCours ++;
-	if (indexSlideEnCours >slides.length-1)
-		indexSlideEnCours =slides.length-1;
+	if (indexSlideEnCours >3)
+		indexSlideEnCours =0;
 	màjSlide(indexSlideEnCours);
 });
