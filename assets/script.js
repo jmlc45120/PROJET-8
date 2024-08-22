@@ -21,7 +21,7 @@ const slides = [
 const arrowLeft = document.querySelector('#banner .arrow_left');
 const arrowRight = document.querySelector('#banner .arrow_right');
 
-// Récupération des éléments HTML de la bannière à mettre à jour :
+// Récupération des éléments HTML de la bannière :
 const bannerImg = document.querySelector('#banner .banner-img');
 const bannerText = document.querySelector('#banner p');
 const conteneurBulletPoints = document.querySelector('.dots');
@@ -42,15 +42,6 @@ affichBulletPoints();
 // Initialisation de l'index du slide courant :
 let indexSlideEnCours = 0;
 
-// Fonction de gestion du carrousel :
-function màjSlide(indexSlideEnCours) {
-    bannerImg.src = `./assets/images/slideshow/${slides[indexSlideEnCours].image}`;
-    bannerText.innerHTML = slides[indexSlideEnCours].tagLine;
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => dot.classList.remove('dot_selected'));
-    dots[indexSlideEnCours].classList.add('dot_selected');
-}
-
 // Gestion evenement : Clic flêche gauche :
 arrowLeft.addEventListener('click', () => {
     indexSlideEnCours --;
@@ -68,6 +59,15 @@ arrowRight.addEventListener('click', () => {
 		indexSlideEnCours =0;
 	màjSlide(indexSlideEnCours);
 });
+
+// Fonction de gestion du carrousel :
+function màjSlide(indexSlideEnCours) {
+    bannerImg.src = `./assets/images/slideshow/${slides[indexSlideEnCours].image}`;
+    bannerText.innerHTML = slides[indexSlideEnCours].tagLine;
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(dot => dot.classList.remove('dot_selected'));
+    dots[indexSlideEnCours].classList.add('dot_selected');
+}
 
 arrowLeft.style.cursor = 'pointer';
 arrowRight.style.cursor = 'pointer';
