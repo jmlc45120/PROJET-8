@@ -21,7 +21,7 @@ const slides = [
 const arrowLeft = document.querySelector('#banner .arrow_left');
 const arrowRight = document.querySelector('#banner .arrow_right');
 
-// Pointage vers les éléments HTML de la bannière à mettre à jour :
+// Récupération des éléments HTML de la bannière à mettre à jour :
 const bannerImg = document.querySelector('#banner .banner-img');
 const bannerText = document.querySelector('#banner p');
 const conteneurBulletPoints = document.querySelector('.dots');
@@ -39,9 +39,10 @@ function affichBulletPoints() {
 }
 affichBulletPoints();
 
-// Initialisation de l'index du slide courant
+// Initialisation de l'index du slide courant :
 let indexSlideEnCours = 0;
-// Fonction pour gestion du slide dynamique:
+
+// Fonction de gestion du carrousel :
 function màjSlide(indexSlideEnCours) {
     bannerImg.src = `./assets/images/slideshow/${slides[indexSlideEnCours].image}`;
     bannerText.innerHTML = slides[indexSlideEnCours].tagLine;
@@ -67,3 +68,6 @@ arrowRight.addEventListener('click', () => {
 		indexSlideEnCours =0;
 	màjSlide(indexSlideEnCours);
 });
+
+arrowLeft.style.cursor = 'pointer';
+arrowRight.style.cursor = 'pointer';
