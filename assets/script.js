@@ -69,5 +69,6 @@ function màjSlide(indexSlideEnCours) {
     dots[indexSlideEnCours].classList.add('dot_selected');
 }
 
+// Changement aspect curseur au survol des flêches :
 arrowLeft.style.cursor = 'pointer';
 arrowRight.style.cursor = 'pointer';
